@@ -1,33 +1,48 @@
 <footer class="footer">
-  <div class="footer-column">
-    <small>
-      &copy;&nbsp;
-      {%- assign date_from = site.posts[-1].date | date_to_xmlschema -%}
-      {%- assign year_from = date_from | date: '%Y' -%}
-      {%- assign date_to   = site.time | date_to_xmlschema -%}
-      {%- assign year_to   = date_to | date: '%Y' -%}
-      {%- unless year_from == nil or year_from == year_to -%}
-        <time datetime="{{ date_from }}">{{ year_from }}</time>-
-      {%- endunless -%}
-      <time datetime="{{ date_to }}">{{ year_to }}</time>
-      {%- if site.author -%}
-        &nbsp;<a href="{{ site.author.url }}" target="_blank">{{ site.author.name }}</a>
-      {%- endif -%}
-    </small>
-    <br>
-    <small>Powered by <a href="https://jekyllrb.com/" target="_blank">Jekyll</a> & <a href="https://github.com/sziv2p/jekyll-theme-scaffold" target="_blank">Scaffold</a></small>
-  </div>
-  {% if site.data.social %}
-    <div class="footer-column">
-      <ul class="social-icons">
-        {%- for social in site.data.social -%}
-          <li class="social-icon-item">
-            <a class="social-icon" href="{{ social.url }}" target="_blank">
-              <i class="{{ social.icon | default: 'fas fa-link' }}" title="{{ social.title }}"></i>
-            </a>
-          </li>
-        {%- endfor -%}
-      </ul>
-    </div>
-  {% endif %}
+  <p>
+    &copy; 2020 Designed & Developed by
+    <a class="highlight-link" href="https://longpdo.github.io/" target="_blank" rel="noreferrer">
+      Long Do
+    </a>
+  </p>
+  <p>
+    Built with
+    <a class="highlight-link" href="https://jekyllrb.com/"target="_blank" rel="noreferrer">
+      Jekyll
+    </a>
+    and powered by
+    <a class="highlight-link" href="https://pages.github.com/" target="_blank" rel="noreferrer">
+      Github Pages
+    </a>
+  </p>
 </footer>
+
+<!-- Google Analytics -->
+{% if site.google-analytics %}
+<script>
+  var dnt = navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack;
+  if (dnt != "1" && dnt != "yes") {
+    (function (i, s, o, g, r, a, m) {
+      i["GoogleAnalyticsObject"] = r;
+      (i[r] =
+        i[r] ||
+        function () {
+          (i[r].q = i[r].q || []).push(arguments);
+        }),
+        (i[r].l = 1 * new Date());
+      (a = s.createElement(o)), (m = s.getElementsByTagName(o)[0]);
+      a.async = 1;
+      a.src = g;
+      m.parentNode.insertBefore(a, m);
+    })(
+      window,
+      document,
+      "script",
+      "https://www.google-analytics.com/analytics.js",
+      "ga"
+    );
+    ga("create", "{{ site.google-analytics.id }}", "auto");
+    ga("send", "pageview");
+  }
+</script>
+{% endif %}
