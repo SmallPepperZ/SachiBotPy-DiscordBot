@@ -1,3 +1,2 @@
-# SachiBotPy-DiscordBot
-My discord bot that does some stuff. Granted, it's not much stuff, but it's stuff all the same
-test
+# SachiBotPy-DiscordBot Pages
+This is where I host the github pages site for this bot
